@@ -1,0 +1,58 @@
+@use 'normalize';
+@use 'colors';
+@use 'mixins';
+@use 'base';
+
+
+.new-game-btn {
+    font-size: 3rem;
+    background-color: colors.$highlight;
+    color: colors.$font-light;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border: 5px solid colors.$highlight;
+    transition: 0.2s;
+    @include mixins.shadow;
+
+    &:hover {
+        // background-color: white;
+        // color: colors.$bg-dark;
+        border-color: white;
+        cursor: pointer;
+    }
+}
+
+
+.game {
+    background-color: colors.$bg-light;
+    border-radius: 5px;
+    padding: 1rem;
+    border: 5px solid colors.$bg-light;
+    @include mixins.shadow;
+
+    &:hover {
+        cursor: pointer;
+        border-color: colors.$highlight;
+    }
+
+    .timestamp { 
+        margin: 1rem 0 0 0;
+        text-align: right;
+        color: colors.$font-grey;
+    }
+
+    .players {
+        @include mixins.grid-4;
+        .indv-player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                font-size: 2.5rem;
+                margin: 1rem 0;
+            }
+        }
+    }
+}

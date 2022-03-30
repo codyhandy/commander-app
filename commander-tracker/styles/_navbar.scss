@@ -1,0 +1,43 @@
+@use 'normalize';
+@use 'colors';
+@use 'mixins';
+@use 'base';
+
+.navigation {
+    @include mixins.flex-between;
+    background-color: colors.$bg-dark;
+
+    .logo {
+        font-size: 5rem;
+        cursor: pointer;
+        padding: 2rem;
+        line-height: 1;
+        height: 100%;
+        transition: 0.2s;
+
+        &:hover {
+            color: colors.$highlight;
+        }
+    }
+
+    .hamburger-icon {
+        cursor: pointer;
+        padding: 2rem;
+        height: 5rem;
+
+        &:hover {
+            svg { color: colors.$highlight; }
+        }
+
+       svg {
+           transition: 0.2s;
+            width: 5rem;
+        } 
+    }
+
+    
+
+    .nav-pages {
+        display: none;
+    }
+}
