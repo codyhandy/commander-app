@@ -371,7 +371,7 @@ body {
 
 .content {
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 15rem auto 0;
   padding: 0 2rem;
 }
 
@@ -385,6 +385,11 @@ h1 {
   justify-content: space-between;
   align-items: center;
   background-color: #1A1A1A;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  transition: 0.5s;
 }
 .navigation .logo {
   font-size: 5rem;
@@ -393,6 +398,7 @@ h1 {
   line-height: 1;
   height: 100%;
   transition: 0.2s;
+  z-index: 10;
 }
 .navigation .logo:hover {
   color: #B24414;
@@ -401,16 +407,60 @@ h1 {
   cursor: pointer;
   padding: 2rem;
   height: 5rem;
+  z-index: 10;
 }
-.navigation .hamburger-icon:hover svg {
-  color: #B24414;
+.navigation .hamburger-icon div {
+  margin-top: 0.8rem;
+  background-color: #fff;
+  width: 3.5rem;
+  height: 0.4rem;
+  display: block;
+  position: relative;
+  opacity: 1;
+  border-radius: 15%;
+  transition: all 0.3s;
+}
+.navigation .hamburger-icon.pressed div:first-of-type {
+  transform: rotate(270deg);
+  opacity: 0;
+  top: 0.5rem;
+}
+.navigation .hamburger-icon.pressed div:nth-of-type(2) {
+  transform: rotate(45deg);
+}
+.navigation .hamburger-icon.pressed div:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: -1.1rem;
+}
+.navigation .hamburger-icon:hover div {
+  background-color: #B24414;
 }
 .navigation .hamburger-icon svg {
   transition: 0.2s;
   width: 5rem;
 }
 .navigation .nav-pages {
-  display: none;
+  text-align: center;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 2.4rem;
+  background-color: #1A1A1A;
+  top: -30rem;
+  transition: 0.5s ease-in-out;
+  padding: 2rem 0;
+}
+.navigation .nav-pages.visible {
+  top: 6rem;
+}
+.navigation .nav-pages li {
+  cursor: pointer;
+  padding: 2rem 0;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.navigation .nav-pages li:hover {
+  background-color: #B24414;
 }
 
 .new-game-btn {
@@ -435,6 +485,7 @@ h1 {
   padding: 1rem;
   border: 5px solid #525252;
   box-shadow: 5px 5px 10px #292929;
+  transition: 0.2s;
 }
 .game:hover {
   cursor: pointer;

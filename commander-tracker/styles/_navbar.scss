@@ -6,6 +6,11 @@
 .navigation {
     @include mixins.flex-between;
     background-color: colors.$bg-dark;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition: 0.5s;
 
     .logo {
         font-size: 5rem;
@@ -14,6 +19,7 @@
         line-height: 1;
         height: 100%;
         transition: 0.2s;
+        z-index: 10;
 
         &:hover {
             color: colors.$highlight;
@@ -24,9 +30,37 @@
         cursor: pointer;
         padding: 2rem;
         height: 5rem;
+        z-index: 10;
+
+        div {
+            margin-top: 0.8rem;
+            background-color: #fff;
+            width: 3.5rem;
+            height: 0.4rem;
+            display: block;
+            position: relative;
+            opacity: 1.0;
+            border-radius: 15%;
+            transition: all .3s;
+        }
+
+        &.pressed div:first-of-type {
+            transform: rotate(270deg);
+            opacity: 0;
+            top: 0.5rem;
+        }
+
+        &.pressed div:nth-of-type(2) {
+            transform: rotate(45deg);
+        }
+
+        &.pressed div:nth-of-type(3) {
+            transform: rotate(-45deg);
+            top: -1.1rem;
+        }
 
         &:hover {
-            svg { color: colors.$highlight; }
+            div { background-color: colors.$highlight; }
         }
 
        svg {
@@ -38,6 +72,29 @@
     
 
     .nav-pages {
-        display: none;
+        text-align: center;
+        position: absolute;
+        margin: 0 auto;
+        width: 100%;
+        font-size: 2.4rem;
+        background-color: colors.$bg-dark;
+        top: -30rem;
+        transition: 0.5s ease-in-out;
+        padding: 2rem 0;
+
+        &.visible {
+            top: 6rem;
+        }
+
+        li {
+            cursor: pointer;
+            padding: 2rem 0;
+            transition: 0.3s;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: colors.$highlight;
+            }
+        }
     }
 }

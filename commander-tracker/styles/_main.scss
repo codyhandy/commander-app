@@ -30,6 +30,7 @@
     padding: 1rem;
     border: 5px solid colors.$bg-light;
     @include mixins.shadow;
+    transition: 0.2s;
 
     &:hover {
         cursor: pointer;

@@ -1,17 +1,29 @@
 import Link from 'next/link'
+import { useRef } from 'react';
+
 
 const Navbar = () => {
+
+    const navElement = useRef(null);
+
+    const eventListener = ( event ) => {
+        
+        event.currentTarget.classList.toggle( 'pressed' );
+        navElement.current.classList.toggle( 'visible' );
+
+    }
+
     return (
         <nav className="navigation">
             <div className="logo">
                 M
             </div>
-            <div className="hamburger-icon">
-                <svg className="w-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+            <div className="hamburger-icon" onClick={ eventListener }>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
-            <ul className="nav-pages">
+            <ul className="nav-pages" ref={navElement}>
                 <li>Players</li>
                 <li>Decks</li>
                 <li>Games</li>
@@ -19,5 +31,7 @@ const Navbar = () => {
         </nav>
     );
 }
+
+
 
 export default Navbar;
